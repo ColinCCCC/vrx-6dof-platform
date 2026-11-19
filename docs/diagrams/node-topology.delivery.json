@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "receiptId": "f8a3647d-915a-4253-979f-cde0a6313aeb",
+  "receiptId": "337ddae2-3c5e-4f85-b830-10ec86676df9",
   "status": "current",
   "command": "deliver",
   "type": "architecture",
   "input": "/home/colin/桌面/marine-am-sin/external/vrx-6dof-platform/docs/diagrams/node-topology.json",
   "output": "/home/colin/桌面/marine-am-sin/external/vrx-6dof-platform/docs/diagrams/node-topology.html",
   "specification": {
-    "sha256": "1dd0a4b62d0b05e1ef91c198d2367a0bb4445a6dcaf5763722ff4f1d79473a3c",
-    "bytes": 3035
+    "sha256": "50e7c9d00099fb0fcf81f15e763a7653fa36e5f07e03ad3463411ff5fb379a5f",
+    "bytes": 3015
   },
   "artifact": {
-    "sha256": "1e024bcc2a25a4b60d0112e78645b38bc98aba54d4573d59a3e8ca4a38517d84",
-    "bytes": 837519
+    "sha256": "b62cad1544a0fef6fa6d614357198241a1796eb4032b7e812df6d4dafc5d16d8",
+    "bytes": 837499
   }
 }

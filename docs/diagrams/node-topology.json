@@ -156,16 +156,16 @@
       "dot": "cyan",
       "title": "仿真侧",
       "items": [
-        "VRX/Gazebo 提供船体与波浪",
-        "vrx_6dof_bridge 输出 TF"
+        "VRX 船体、波浪、浮力",
+        "Gazebo 位姿桥输出 TF"
       ]
     },
     {
       "dot": "emerald",
       "title": "平台侧",
       "items": [
-        "deck_pose_bridge 发送 32 字节 FBFD32",
-        "command_monitor 解析平台回传"
+        "deck_pose_bridge 发送 FBFD32",
+        "command_monitor 解析回传"
       ]
     }
   ]

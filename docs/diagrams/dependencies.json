@@ -68,7 +68,7 @@
       "id": "pkg",
       "type": "backend",
       "label": "vrx_6dof_platform",
-      "sublabel": "桥接/监听/launch",
+      "sublabel": "平台桥接/launch",
       "pos": [
         560,
         190
@@ -84,7 +84,7 @@
       "label": "FBFD32 · UDP",
       "sublabel": "192.168.1.88:8080",
       "pos": [
-        840,
+        820,
         190
       ],
       "size": [
@@ -98,20 +98,20 @@
       "id": "r-b",
       "from": "ros2",
       "to": "bridge",
-      "label": "话题/TF",
+      "label": "节点",
       "variant": "default"
     },
     {
-      "id": "g-p",
+      "id": "g-b",
       "from": "gz",
-      "to": "pkg",
+      "to": "bridge",
       "label": "位姿",
       "variant": "default"
     },
     {
-      "id": "v-p",
+      "id": "v-b",
       "from": "vrx",
-      "to": "pkg",
+      "to": "bridge",
       "label": "波浪",
       "variant": "default"
     },

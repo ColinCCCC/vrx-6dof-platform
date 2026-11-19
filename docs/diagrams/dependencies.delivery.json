@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "receiptId": "8fb92731-5335-43cc-af73-d72c3e138be9",
+  "receiptId": "182450f3-2bd3-4128-86b0-40e4e4284b1c",
   "status": "current",
   "command": "deliver",
   "type": "architecture",
   "input": "/home/colin/桌面/marine-am-sin/external/vrx-6dof-platform/docs/diagrams/dependencies.json",
   "output": "/home/colin/桌面/marine-am-sin/external/vrx-6dof-platform/docs/diagrams/dependencies.html",
   "specification": {
-    "sha256": "9966c86a064d74198a7820710c3da1c2a1695b1071aef3e25956bed43e7a8fec",
-    "bytes": 2583
+    "sha256": "49ad22624251cd336511f0619e55c02a6586c536fe739e1f57169188bfbe3261",
+    "bytes": 2585
   },
   "artifact": {
-    "sha256": "a18093a350e148ceb273b5e648bf1e83d6d45290bd46a390f29e97e54267946a",
-    "bytes": 835686
+    "sha256": "dd122357559e2a8295de8df52f55c674cc4eb2f45632388cba5a84483d7b3a8c",
+    "bytes": 835301
   }
 }
