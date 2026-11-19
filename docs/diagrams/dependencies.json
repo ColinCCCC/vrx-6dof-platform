@@ -81,7 +81,7 @@
     {
       "id": "gzb",
       "type": "backend",
-      "label": "marine_am_gz_bridge",
+      "label": "vrx_6dof_bridge",
       "sublabel": "wamv_pose_bridge",
       "pos": [
         540,
@@ -268,7 +268,7 @@
       "title": "本项目",
       "items": [
         "marine_am_platform：补偿、速度环、平台 UDP 桥接三个节点",
-        "marine_am_gz_bridge：C++ 位姿桥（gz-transport → TF）",
+        "vrx_6dof_bridge：C++ 位姿桥（gz-transport → TF）",
         "marine_am_arm_moveit：MoveIt 配置，按需启动"
       ]
     },

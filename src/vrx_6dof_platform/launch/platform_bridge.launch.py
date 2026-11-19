@@ -10,7 +10,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory('marine_am_sim')
+    pkg_share = get_package_share_directory('vrx_6dof_platform')
 
     config = LaunchConfiguration('config')
     dry_run = LaunchConfiguration('dry_run')
@@ -61,7 +61,7 @@ def generate_launch_description():
             description='是否同时启动控制命令翻译监听'),
 
         Node(
-            package='marine_am_gz_bridge',
+            package='vrx_6dof_bridge',
             executable='wamv_pose_bridge',
             name='wamv_pose_bridge',
             output='screen',
@@ -74,14 +74,14 @@ def generate_launch_description():
         ),
 
         Node(
-            package='marine_am_sim',
+            package='vrx_6dof_platform',
             executable='command_monitor',
             name='platform_command_monitor',
             output='screen',
             condition=IfCondition(start_monitor),
         ),
         Node(
-            package='marine_am_sim',
+            package='vrx_6dof_platform',
             executable='deck_pose_bridge',
             name='deck_pose_bridge',
             output='screen',

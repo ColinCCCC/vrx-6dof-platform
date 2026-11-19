@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.2)
-project(marine_am_gz_bridge)
+project(vrx_6dof_bridge)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)

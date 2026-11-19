@@ -10,7 +10,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    sim_dir = os.environ.get('MARINE_AM_SIM_DIR', '')
+    sim_dir = os.environ.get('VRX_6DOF_DIR', '')
     worlds = os.path.join(sim_dir, 'worlds')
     models = os.path.join(worlds, 'models')
     world = LaunchConfiguration('world')
@@ -31,7 +31,7 @@ def generate_launch_description():
         launch_arguments={'world': world, 'config_file': config_file,
                           'headless': headless, 'paused': paused}.items())
     bridge = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('marine_am_sim'), 'launch', 'platform_bridge.launch.py')),
+        PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('vrx_6dof_platform'), 'launch', 'platform_bridge.launch.py')),
         launch_arguments={'dry_run': dry_run, 'start_monitor': start_monitor,
                           'platform_host': platform_host, 'platform_port': platform_port,
                           'source_frame': source_frame, 'deck_frame': deck_frame,

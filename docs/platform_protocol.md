@@ -115,7 +115,7 @@ A = [[ 0, -1, 0],
 
 - ROS 2 节点：`marine_am_platform/deck_pose_bridge`（Python）。
 - 数据源：Gazebo 中单体船的模型位姿 TF（`vrx_smoke_test` → `marine_am_boat`）。
-  该 TF 由项目自己的 `marine_am_gz_bridge`（C++ 节点）从 Gazebo transport 的
+  该 TF 由项目自己的 `vrx_6dof_bridge`（C++ 节点）从 Gazebo transport 的
   `/world/<world>/pose/info` 中提取 `marine_am_boat` 模型位姿后广播，VRX 子模块保持上游原样。
 - 默认 `dry_run=true`，只打印/记录报文不实际发送；上线前先确认平台 IP、端口与模式。
 - 安全：位移/角度限幅、无位姿超时发送「暂停」、可在线使能/停用。

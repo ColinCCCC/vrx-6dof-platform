@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-package_name='marine_am_sim'
+package_name='vrx_6dof_platform'
 setup(
     name=package_name, version='0.1.0',
     packages=find_packages(exclude=['test']),
@@ -13,7 +13,7 @@ setup(
     maintainer='Colin', maintainer_email='ColinCCCC@users.noreply.github.com',
     description='VRX simulation and platform bridge', license='Apache-2.0',
     entry_points={'console_scripts':[
-        'deck_pose_bridge = marine_am_sim.deck_pose_bridge:main',
-        'command_monitor = marine_am_sim.command_monitor:main',
+        'deck_pose_bridge = vrx_6dof_platform.deck_pose_bridge:main',
+        'command_monitor = vrx_6dof_platform.command_monitor:main',
     ]},
 )
