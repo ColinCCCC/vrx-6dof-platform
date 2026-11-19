@@ -1,0 +1,471 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="marine_am_boat">
+    <static>false</static>
+    <self_collide>false</self_collide>
+    <pose>0 0 -0.031 0 0 0</pose>
+
+    <link name="base_link">
+      <inertial>
+        <pose>0 0 -0.05 0 0 0</pose>
+        <mass>4.0</mass>
+        <inertia>
+          <ixx>0.05</ixx>
+          <iyy>0.35</iyy>
+          <izz>0.38</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="hull_collision">
+        <pose>0 0 -0.02 0 0 0</pose>
+        <geometry>
+          <box><size>0.95 0.26 0.16</size></box>
+        </geometry>
+      </collision>
+      <visual name="hull_visual">
+        <pose>0 0.0075 0.08 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://marine_am_boat/meshes/hull_clean.stl</uri></mesh>
+        </geometry>
+        <material>
+          <ambient>0.85 0.85 0.85 1</ambient>
+          <diffuse>0.95 0.95 0.95 1</diffuse>
+          <specular>0.20 0.20 0.20 1</specular>
+        </material>
+      </visual>
+    </link>
+    <!-- 压载：降低重心 -->
+    <link name="ballast">
+      <pose>0 0 -0.13 0 0 0</pose>
+      <inertial>
+        <mass>1.2</mass>
+        <inertia><ixx>0.008</ixx><iyy>0.020</iyy><izz>0.022</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <collision name="ballast_collision">
+        <geometry><box><size>0.40 0.15 0.06</size></box></geometry>
+      </collision>
+      <visual name="ballast_visual">
+        <geometry><box><size>0.40 0.15 0.06</size></box></geometry>
+        <material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- 舷外浮筒：提高横稳性 -->
+    <link name="outrigger_port">
+      <pose>0 0.40 0.02 0 0 0</pose>
+      <inertial>
+        <mass>0.25</mass>
+        <inertia><ixx>0.004</ixx><iyy>0.006</iyy><izz>0.004</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <collision name="outrigger_port_collision">
+        <geometry><box><size>0.55 0.10 0.10</size></box></geometry>
+      </collision>
+      <visual name="outrigger_port_visual">
+        <geometry><box><size>0.55 0.10 0.10</size></box></geometry>
+        <material><ambient>0.9 0.45 0.1 1</ambient><diffuse>1.0 0.55 0.1 1</diffuse></material>
+      </visual>
+    </link>
+    <link name="outrigger_starboard">
+      <pose>0 -0.40 0.02 0 0 0</pose>
+      <inertial>
+        <mass>0.25</mass>
+        <inertia><ixx>0.004</ixx><iyy>0.006</iyy><izz>0.004</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <collision name="outrigger_starboard_collision">
+        <geometry><box><size>0.55 0.10 0.10</size></box></geometry>
+      </collision>
+      <visual name="outrigger_starboard_visual">
+        <geometry><box><size>0.55 0.10 0.10</size></box></geometry>
+        <material><ambient>0.9 0.45 0.1 1</ambient><diffuse>1.0 0.55 0.1 1</diffuse></material>
+      </visual>
+    </link>
+
+
+    <plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics">
+      <link_name>base_link</link_name>
+      <xDotU>0.0</xDotU>
+      <yDotV>0.0</yDotV>
+      <zDotW>0.0</zDotW>
+      <kDotP>0.0</kDotP>
+      <mDotQ>0.0</mDotQ>
+      <nDotR>0.0</nDotR>
+      <xU>10.0</xU>
+      <yV>10.0</yV>
+      <zW>60.0</zW>
+      <kP>8.0</kP>
+      <mQ>8.0</mQ>
+      <nR>10.0</nR>
+    </plugin>
+
+
+
+    <!-- VRX 浮力/波浪插件：六个浮力点提供升沉、纵摇、横摇恢复力 -->
+    <plugin filename="libSurface.so" name="vrx::Surface">
+      <link_name>base_link</link_name>
+      <hull_length>1.0</hull_length>
+      <hull_radius>0.28</hull_radius>
+      <fluid_level>0</fluid_level>
+      <points>
+        <point>-0.35  0.14 0</point>
+        <point>-0.35 -0.14 0</point>
+        <point> 0.00  0.14 0</point>
+        <point> 0.00 -0.14 0</point>
+        <point> 0.35  0.14 0</point>
+        <point> 0.35 -0.14 0</point>
+      </points>
+      <wavefield>
+        <topic>/vrx/wavefield/parameters</topic>
+      </wavefield>
+    </plugin>
+    <plugin filename="libSurface.so" name="vrx::Surface">
+      <link_name>outrigger_port</link_name>
+      <hull_length>0.55</hull_length>
+      <hull_radius>0.07</hull_radius>
+      <fluid_level>0</fluid_level>
+      <points>
+        <point>-0.20 0 0</point>
+        <point> 0.00 0 0</point>
+        <point> 0.20 0 0</point>
+      </points>
+      <wavefield><topic>/vrx/wavefield/parameters</topic></wavefield>
+    </plugin>
+    <plugin filename="libSurface.so" name="vrx::Surface">
+      <link_name>outrigger_starboard</link_name>
+      <hull_length>0.55</hull_length>
+      <hull_radius>0.07</hull_radius>
+      <fluid_level>0</fluid_level>
+      <points>
+        <point>-0.20 0 0</point>
+        <point> 0.00 0 0</point>
+        <point> 0.20 0 0</point>
+      </points>
+      <wavefield><topic>/vrx/wavefield/parameters</topic></wavefield>
+    </plugin>
+
+
+    <link name='g_base'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.40000000000000002</mass>
+        <inertia>
+          <ixx>0.00024000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00024000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.00024000000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name='g_base_visual'>
+        <pose>0 0 -0.029999999999999999 0 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/G_base.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='g_base_fixed_joint_lump__joint1_visual_1'>
+        <pose>0 0 0 0 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='joint2'>
+      <pose relative_to='joint2_to_joint1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.12</mass>
+        <inertia>
+          <ixx>7.2000000000000002e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7.2000000000000002e-05</iyy>
+          <iyz>0</iyz>
+          <izz>7.2000000000000002e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='joint2_visual'>
+        <pose>0 0 -0.06096 0 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='joint3'>
+      <pose relative_to='joint3_to_joint2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.10000000000000001</mass>
+        <inertia>
+          <ixx>6.0000000000000002e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6.0000000000000002e-05</iyy>
+          <iyz>0</iyz>
+          <izz>6.0000000000000002e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='joint3_visual'>
+        <pose>0 0 0.032559999999999999 0 -1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint3.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='joint4'>
+      <pose relative_to='joint4_to_joint3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.080000000000000002</mass>
+        <inertia>
+          <ixx>4.8000000000000001e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.8000000000000001e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.8000000000000001e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='joint4_visual'>
+        <pose>0 0 0.03056 0 -1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint4.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='joint5'>
+      <pose relative_to='joint5_to_joint4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.070000000000000007</mass>
+        <inertia>
+          <ixx>4.1999999999999998e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.1999999999999998e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.1999999999999998e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='joint5_visual'>
+        <pose>0 0 -0.03356 -1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint5.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='joint6'>
+      <pose relative_to='joint6_to_joint5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.059999999999999998</mass>
+        <inertia>
+          <ixx>3.6000000000000001e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3.6000000000000001e-05</iyy>
+          <iyz>0</iyz>
+          <izz>3.6000000000000001e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='joint6_visual'>
+        <pose>0 0 -0.037999999999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint6.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='joint6_flange'>
+      <pose relative_to='joint6output_to_joint6'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.040000000000000001</mass>
+        <inertia>
+          <ixx>2.4000000000000001e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.4000000000000001e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.4000000000000001e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='joint6_flange_visual'>
+        <pose>0 0 -0.012 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://marine_am_boat/meshes/mycobot/joint7.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint2_to_joint1' type='revolute'>
+      <pose relative_to='g_base'>0 0 0.13156000000000001 0 0 0</pose>
+      <parent>g_base</parent>
+      <child>joint2</child>
+
+      <dynamics><damping>2.0</damping><friction>0.05</friction></dynamics>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.9321</lower>
+          <upper>2.9321</upper>
+          <effort>5.0</effort>
+          <velocity>3.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name='joint3_to_joint2' type='revolute'>
+      <pose relative_to='joint2'>0 0 0 -3.1415926535746808 1.5707926536662187 1.5707926536359933</pose>
+      <parent>joint2</parent>
+      <child>joint3</child>
+
+      <dynamics><damping>2.0</damping><friction>0.05</friction></dynamics>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.4434</lower>
+          <upper>2.4434</upper>
+          <effort>5.0</effort>
+          <velocity>3.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name='joint4_to_joint3' type='revolute'>
+      <pose relative_to='joint3'>-0.1104 0 0 0 0 0</pose>
+      <parent>joint3</parent>
+      <child>joint4</child>
+
+      <dynamics><damping>2.0</damping><friction>0.05</friction></dynamics>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.6179</lower>
+          <upper>2.6179</upper>
+          <effort>5.0</effort>
+          <velocity>3.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name='joint5_to_joint4' type='revolute'>
+      <pose relative_to='joint4'>-0.096000000000000002 0 0.064619999999999997 0 0 -1.5708</pose>
+      <parent>joint4</parent>
+      <child>joint5</child>
+
+      <dynamics><damping>2.0</damping><friction>0.05</friction></dynamics>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.6179</lower>
+          <upper>2.6179</upper>
+          <effort>5.0</effort>
+          <velocity>3.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name='joint6_to_joint5' type='revolute'>
+      <pose relative_to='joint5'>0 -0.073179999999999995 0 -1.5707926536057684 -1.5707926536057681 -3.1415926535746808</pose>
+      <parent>joint5</parent>
+      <child>joint6</child>
+
+      <dynamics><damping>2.0</damping><friction>0.05</friction></dynamics>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.7052</lower>
+          <upper>2.7925</upper>
+          <effort>5.0</effort>
+          <velocity>3.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name='joint6output_to_joint6' type='revolute'>
+      <pose relative_to='joint6'>0 0.045600000000000002 0 -1.5708 0 0</pose>
+      <parent>joint6</parent>
+      <child>joint6_flange</child>
+
+      <dynamics><damping>2.0</damping><friction>0.05</friction></dynamics>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+          <effort>5.0</effort>
+          <velocity>3.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name="base_to_ballast" type="fixed">
+      <parent>base_link</parent><child>ballast</child>
+    </joint>
+    <joint name="base_to_outrigger_port" type="fixed">
+      <parent>base_link</parent><child>outrigger_port</child>
+    </joint>
+    <joint name="base_to_outrigger_starboard" type="fixed">
+      <parent>base_link</parent><child>outrigger_starboard</child>
+    </joint>
+    <joint name="boat_to_arm" type="fixed">
+      <parent>base_link</parent>
+      <child>g_base</child>
+      <pose>0.10 0 0.075 0 0 0</pose>
+    </joint>
+
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>joint2_to_joint1</joint_name>
+      <topic>/arm/joint/joint2_to_joint1/cmd_vel</topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>joint3_to_joint2</joint_name>
+      <topic>/arm/joint/joint3_to_joint2/cmd_vel</topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>joint4_to_joint3</joint_name>
+      <topic>/arm/joint/joint4_to_joint3/cmd_vel</topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>joint5_to_joint4</joint_name>
+      <topic>/arm/joint/joint5_to_joint4/cmd_vel</topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>joint6_to_joint5</joint_name>
+      <topic>/arm/joint/joint6_to_joint5/cmd_vel</topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+      <joint_name>joint6output_to_joint6</joint_name>
+      <topic>/arm/joint/joint6output_to_joint6/cmd_vel</topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/arm/joint_states</topic>
+    </plugin>
+  </model>
+</sdf>

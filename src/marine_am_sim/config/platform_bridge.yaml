@@ -1,0 +1,41 @@
+# 甲板位姿 -> 六自由度平台 UDP 桥接节点参数
+deck_pose_bridge:
+  ros__parameters:
+    # --- 数据源 ---
+    # Gazebo world 名称（随 world sdf 的 <world name> 变化）
+    source_frame: vrx_smoke_test
+    # WAM-V 模型位姿帧（模型根帧；相对运动与 base_link 等价）
+    deck_frame: marine_am_boat
+    rate_hz: 50.0
+
+    # --- 平台 UDP ---
+    platform_host: "192.168.1.88"
+    platform_port: 8080   # 平台控制板 UDP 端口（CS_FI 通讯参数）
+    local_port: 8080      # 本机绑定端口（接收平台自动回传）
+    protocol: fbfd32       # fbfd32（平台本体，32 字节）| washout64（洗出，64 字节）
+    dry_run: true          # true：只打印/发布，不实际发 UDP
+    washout_enabled: false # 平台本体模式 = false
+    shutdown: false
+
+    # --- 参考位姿 ---
+    reference_mode: detrend   # initial | mean | detrend（线性去趋势，抑制漂移）
+    detrend_window_s: 12.0
+    mean_time_constant_s: 5.0
+
+    # --- 缩放与限幅 ---
+    translation_scale: 0.6
+    rotation_scale: 0.8
+    max_translation_mm: 40.0   # 小艇小幅波动，留足余量
+    max_rotation_deg: 4.0
+
+    # --- 协议字段 ---
+    length: 1
+    velocity: 40
+    amplitude: 80
+    smoothness: 15
+    accelerate: 10
+
+    # --- 安全 ---
+    enable_motion: true
+    stale_timeout_s: 0.3
+    warmup_s: 8.0   # 等船体落水稳定后再发命令

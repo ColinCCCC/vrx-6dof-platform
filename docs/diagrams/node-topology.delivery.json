@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "a9fd2cce-0c27-4814-8b2c-213ddcaef1f9",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/colin/桌面/marine-am-sin/docs/diagrams/node-topology.json",
+  "output": "/home/colin/桌面/marine-am-sin/docs/diagrams/node-topology.html",
+  "specification": {
+    "sha256": "7da8fa4185fd1d06de73e6ce302cc47d6714f8535e453949c1b6459398c79b5b",
+    "bytes": 6408
+  },
+  "artifact": {
+    "sha256": "adc15067a499200ddaac23f4422d04c69ccb302cede0c64d297182509172b0ae",
+    "bytes": 849100
+  }
+}

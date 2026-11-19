@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "8ea19bf8-1299-4c18-92c6-d21563510d5f",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/colin/桌面/marine-am-sin/docs/diagrams/dependencies.json",
+  "output": "/home/colin/桌面/marine-am-sin/docs/diagrams/dependencies.html",
+  "specification": {
+    "sha256": "95e94ae7c476598fec227f75b0530fab273ead133af253511f84fe60de2a17d5",
+    "bytes": 5093
+  },
+  "artifact": {
+    "sha256": "cedacb942fdf3706f360a5bd00306dcd4771753aac977eae209ef6f1400e6f4a",
+    "bytes": 848510
+  }
+}
