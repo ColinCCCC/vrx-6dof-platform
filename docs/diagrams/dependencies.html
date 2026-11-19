@@ -5203,7 +5203,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 图版 04">
-      <svg viewBox="0 0 1040 688" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg viewBox="0 0 1060 460" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">依赖关系</title>
         <desc id="archify-diagram-description">由 Archify 生成的架构图。</desc>
         <!-- Definitions -->
@@ -5254,54 +5254,25 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 125 132 L 125 153 Q 125 161 133 161 L 357 161 Q 365 161 365 169 L 365 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="ros2" data-edge-to="bridge" data-edge-key="0" data-edge-id="ros2-to-bridge" data-composition-points="125,132;125,161;365,161;365,190" data-composition-crossover="halo" data-composition-independent="true" d="M 125 132 L 125 153 Q 125 161 133 161 L 357 161 Q 365 161 365 169 L 365 190" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 210 96 L 387 96 Q 395 96 395 104 L 395 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ros2" data-edge-to="bridge" data-edge-label="话题/TF" data-edge-key="0" data-edge-id="r-b" data-composition-points="210,96;395,96;395,190" data-composition-crossover="halo" data-composition-independent="true" d="M 210 96 L 387 96 Q 395 96 395 104 L 395 190" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 210 219 L 280 219" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="gz" data-edge-to="bridge" data-edge-label="gz 话题" data-edge-key="1" data-edge-id="gz-to-bridge" data-composition-points="210,219;280,219" data-composition-crossover="halo" data-composition-independent="true" d="M 210 219 L 280 219" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 125 262 L 125 278 Q 125 286 133 286 L 528 286 Q 536 286 536 278 L 536 229 Q 536 221 544 221 L 560 221" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="gz" data-edge-to="pkg" data-edge-label="位姿" data-edge-key="1" data-edge-id="g-p" data-composition-points="125,262;125,286;536,286;536,221;560,221" data-composition-crossover="halo" data-composition-independent="true" d="M 125 262 L 125 278 Q 125 286 133 286 L 528 286 Q 536 286 536 278 L 536 229 Q 536 221 544 221 L 560 221" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 125 320 L 125 262" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="vrx" data-edge-to="gz" data-edge-label="插件" data-edge-key="2" data-edge-id="vrx-to-gz" data-composition-points="125,320;125,262" data-composition-crossover="halo" data-composition-independent="true" d="M 125 320 L 125 262" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 210 356 L 657 356 Q 665 356 665 348 L 665 280" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="vrx" data-edge-to="pkg" data-edge-label="波浪" data-edge-key="2" data-edge-id="v-p" data-composition-points="210,356;665,356;665,280" data-composition-crossover="halo" data-composition-independent="true" d="M 210 356 L 657 356 Q 665 356 665 348 L 665 280" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 210 103 L 623 103 Q 631 103 631 111 L 631 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="ros2" data-edge-to="pkg" data-edge-label="rclpy" data-edge-key="3" data-edge-id="ros2-to-pkg" data-composition-points="210,103;631,103;631,190" data-composition-crossover="halo" data-composition-independent="true" d="M 210 103 L 623 103 Q 631 103 631 111 L 631 190" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 490 230 L 506 230 Q 514 230 514 222 L 514 174 Q 514 166 522 166 L 657 166 Q 665 166 665 174 L 665 190" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="bridge" data-edge-to="pkg" data-edge-label="TF" data-edge-key="3" data-edge-id="b-p" data-composition-points="490,230;514,230;514,166;665,166;665,190" data-composition-crossover="halo" data-composition-independent="true" d="M 490 230 L 506 230 Q 514 230 514 222 L 514 174 Q 514 166 522 166 L 657 166 Q 665 166 665 174 L 665 190" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 450 219 L 540 219" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="bridge" data-edge-to="pkg" data-edge-label="关节状态" data-edge-key="4" data-edge-id="bridge-to-pkg" data-composition-points="450,219;540,219" data-composition-crossover="halo" data-composition-independent="true" d="M 450 219 L 540 219" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 770 235 L 840 235" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="pkg" data-edge-to="udp" data-edge-label="UDP" data-edge-key="4" data-edge-id="p-u" data-composition-points="770,235;840,235" data-composition-crossover="halo" data-composition-independent="true" d="M 770 235 L 840 235" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
-        <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 210 233 L 226 233 Q 234 233 234 241 L 234 424 Q 234 432 242 432 L 540 432" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="gz" data-edge-to="gzb" data-edge-label="gz-transport" data-edge-key="5" data-edge-id="gz-to-gzb" data-composition-points="210,233;234,233;234,432;540,432" data-composition-crossover="halo" data-composition-independent="true" d="M 210 233 L 226 233 Q 234 233 234 241 L 234 424 Q 234 432 242 432 L 540 432" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 365 262 L 365 410 Q 365 418 373 418 L 540 418" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="bridge" data-edge-to="gzb" data-edge-key="6" data-edge-id="bridge-to-gzb" data-composition-points="365,262;365,418;540,418" data-composition-crossover="halo" data-composition-independent="true" d="M 365 262 L 365 410 Q 365 418 373 418 L 540 418" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 645 300 L 645 380" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="pkg" data-edge-to="gzb" data-edge-label="位姿帧" data-edge-key="7" data-edge-id="pkg-to-gzb" data-composition-points="645,300;645,380" data-composition-crossover="halo" data-composition-independent="true" d="M 645 300 L 645 380" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 830 226 L 750 226" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="numpy" data-edge-to="pkg" data-edge-label="数值计算" data-edge-key="8" data-edge-id="numpy-to-pkg" data-composition-points="830,226;750,226" data-composition-crossover="halo" data-composition-independent="true" d="M 830 226 L 750 226" class="a-default" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 830 336 L 742 336 Q 734 336 734 328 L 734 300" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="desc" data-edge-to="pkg" data-edge-label="URDF" data-edge-key="9" data-edge-id="desc-to-pkg" data-composition-points="830,336;734,336;734,300" data-composition-crossover="halo" data-composition-independent="true" d="M 830 336 L 742 336 Q 734 336 734 328 L 734 300" class="a-default" data-animate="edge" style="--step:9" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 830 96 L 653 96 Q 645 96 645 104 L 645 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="udp" data-edge-to="pkg" data-edge-label="报文" data-edge-key="10" data-edge-id="udp-to-pkg" data-composition-points="830,96;645,96;645,190" data-composition-crossover="halo" data-composition-independent="true" d="M 830 96 L 653 96 Q 645 96 645 104 L 645 190" class="a-default" data-animate="edge" style="--step:10" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:11">
-          <path data-graph-role="automatic-crossover-underlay" d="M 846 392 L 846 538 Q 846 546 838 546 L 750 546" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="desc" data-edge-to="mvpkg" data-edge-label="URDF" data-edge-key="11" data-edge-id="desc-to-mvpkg" data-composition-points="846,392;846,546;750,546" data-composition-crossover="halo" data-composition-independent="true" d="M 846 392 L 846 538 Q 846 546 838 546 L 750 546" class="a-default" data-animate="edge" style="--step:11" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <path data-edge-from="moveit2" data-edge-to="mvpkg" data-edge-label="规划" data-edge-key="12" data-edge-id="moveit2-to-mvpkg" data-composition-points="210,506;500,506;500,575;540,575" d="M 210 506 L 492 506 Q 500 506 500 514 L 500 567 Q 500 575 508 575 L 540 575" class="a-default" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
         <!-- Components -->
         <g id="node-ros2" data-node-id="ros2" data-node-label="ROS 2 Jazzy" tabindex="0" role="button" aria-label="聚焦ROS 2 Jazzy，rclpy · tf2_ros, 架构组件" aria-pressed="false" data-node-kind="external" data-node-sublabel="rclpy · tf2_ros" data-node-context="架构组件">
@@ -5316,8 +5287,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="125" y="110" class="t-muted" font-size="9" text-anchor="middle">rclpy · tf2_ros</text>
         </g>
 
-        <g id="node-gz" data-node-id="gz" data-node-label="Gazebo Harmonic" tabindex="0" role="button" aria-label="聚焦Gazebo Harmonic，物理与传感器, 架构组件" aria-pressed="false" data-node-kind="external" data-node-sublabel="物理与传感器" data-node-context="架构组件">
-          <title>Gazebo Harmonic · 物理与传感器 · 架构组件</title>
+        <g id="node-gz" data-node-id="gz" data-node-label="Gazebo Harmonic" tabindex="0" role="button" aria-label="聚焦Gazebo Harmonic，gz-sim 8, 架构组件" aria-pressed="false" data-node-kind="external" data-node-sublabel="gz-sim 8" data-node-context="架构组件">
+          <title>Gazebo Harmonic · gz-sim 8 · 架构组件</title>
           <rect x="40" y="190" width="170" height="72" rx="8" class="c-mask"/>
           <rect x="40" y="190" width="170" height="72" rx="8" class="c-external" data-animate="node" style="--step:1" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 196) scale(0.6875)">
@@ -5325,11 +5296,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="125" y="224" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Gazebo Harmonic</text>
-        <text data-detail="context" x="125" y="240" class="t-muted" font-size="9" text-anchor="middle">物理与传感器</text>
+        <text data-detail="context" x="125" y="240" class="t-muted" font-size="9" text-anchor="middle">gz-sim 8</text>
         </g>
 
-        <g id="node-vrx" data-node-id="vrx" data-node-label="VRX vrx_gz" tabindex="0" role="button" aria-label="聚焦VRX vrx_gz，浮力 / 波浪插件, 架构组件" aria-pressed="false" data-node-kind="external" data-node-sublabel="浮力 / 波浪插件" data-node-context="架构组件">
-          <title>VRX vrx_gz · 浮力 / 波浪插件 · 架构组件</title>
+        <g id="node-vrx" data-node-id="vrx" data-node-label="VRX vrx_gz" tabindex="0" role="button" aria-label="聚焦VRX vrx_gz，浮力/波浪插件, 架构组件" aria-pressed="false" data-node-kind="external" data-node-sublabel="浮力/波浪插件" data-node-context="架构组件">
+          <title>VRX vrx_gz · 浮力/波浪插件 · 架构组件</title>
           <rect x="40" y="320" width="170" height="72" rx="8" class="c-mask"/>
           <rect x="40" y="320" width="170" height="72" rx="8" class="c-external" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 326) scale(0.6875)">
@@ -5337,144 +5308,65 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="125" y="354" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">VRX vrx_gz</text>
-        <text data-detail="context" x="125" y="370" class="t-muted" font-size="9" text-anchor="middle">浮力 / 波浪插件</text>
+        <text data-detail="context" x="125" y="370" class="t-muted" font-size="9" text-anchor="middle">浮力/波浪插件</text>
         </g>
 
-        <g id="node-bridge" data-node-id="bridge" data-node-label="ros_gz_bridge" tabindex="0" role="button" aria-label="聚焦ros_gz_bridge，话题桥接, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="话题桥接" data-node-context="架构组件">
-          <title>ros_gz_bridge · 话题桥接 · 架构组件</title>
-          <rect x="280" y="190" width="170" height="72" rx="8" class="c-mask"/>
-          <rect x="280" y="190" width="170" height="72" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(286 196) scale(0.6875)">
+        <g id="node-bridge" data-node-id="bridge" data-node-label="vrx_6dof_bridge" tabindex="0" role="button" aria-label="聚焦vrx_6dof_bridge，C++ gz-transport, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="C++ gz-transport" data-node-context="架构组件">
+          <title>vrx_6dof_bridge · C++ gz-transport · 架构组件</title>
+          <rect x="300" y="190" width="190" height="80" rx="8" class="c-mask"/>
+          <rect x="300" y="190" width="190" height="80" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(306 196) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="365" y="224" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ros_gz_bridge</text>
-        <text data-detail="context" x="365" y="240" class="t-muted" font-size="9" text-anchor="middle">话题桥接</text>
+          <text data-node-label="" data-detail-anchor="" x="395" y="228" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">vrx_6dof_bridge</text>
+        <text data-detail="context" x="395" y="244" class="t-muted" font-size="9" text-anchor="middle">C++ gz-transport</text>
         </g>
 
-        <g id="node-pkg" data-node-id="pkg" data-node-label="marine_am_platform" tabindex="0" role="button" aria-label="聚焦marine_am_platform，补偿 · 速度环 · 平台桥接, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="补偿 · 速度环 · 平台桥接" data-node-context="架构组件">
-          <title>marine_am_platform · 补偿 · 速度环 · 平台桥接 · 架构组件</title>
-          <rect x="540" y="190" width="210" height="110" rx="8" class="c-mask"/>
-          <rect x="540" y="190" width="210" height="110" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 196) scale(0.6875)">
+        <g id="node-pkg" data-node-id="pkg" data-node-label="vrx_6dof_platform" tabindex="0" role="button" aria-label="聚焦vrx_6dof_platform，桥接/监听/launch, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="桥接/监听/launch" data-node-context="架构组件">
+          <title>vrx_6dof_platform · 桥接/监听/launch · 架构组件</title>
+          <rect x="560" y="190" width="210" height="90" rx="8" class="c-mask"/>
+          <rect x="560" y="190" width="210" height="90" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(566 196) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="645" y="243" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">marine_am_platform</text>
-        <text data-detail="context" x="645" y="259" class="t-muted" font-size="9" text-anchor="middle">补偿 · 速度环 · 平台桥接</text>
+          <text data-node-label="" data-detail-anchor="" x="665" y="233" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">vrx_6dof_platform</text>
+        <text data-detail="context" x="665" y="249" class="t-muted" font-size="9" text-anchor="middle">桥接/监听/launch</text>
         </g>
 
-        <g id="node-gzb" data-node-id="gzb" data-node-label="vrx_6dof_bridge" tabindex="0" role="button" aria-label="聚焦vrx_6dof_bridge，wamv_pose_bridge, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="wamv_pose_bridge" data-node-context="架构组件">
-          <title>vrx_6dof_bridge · wamv_pose_bridge · 架构组件</title>
-          <rect x="540" y="380" width="210" height="90" rx="8" class="c-mask"/>
-          <rect x="540" y="380" width="210" height="90" rx="8" class="c-backend" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 386) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+        <g id="node-udp" data-node-id="udp" data-node-label="FBFD32 · UDP" tabindex="0" role="button" aria-label="聚焦FBFD32 · UDP，192.168.1.88:8080, 架构组件" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="192.168.1.88:8080" data-node-context="架构组件">
+          <title>FBFD32 · UDP · 192.168.1.88:8080 · 架构组件</title>
+          <rect x="840" y="190" width="180" height="80" rx="8" class="c-mask"/>
+          <rect x="840" y="190" width="180" height="80" rx="8" class="c-messagebus" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(846 196) scale(0.6875)">
+            <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
+            <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
+            <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="645" y="423" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">vrx_6dof_bridge</text>
-        <text data-detail="context" x="645" y="439" class="t-muted" font-size="9" text-anchor="middle">wamv_pose_bridge</text>
-        </g>
-
-        <g id="node-mvpkg" data-node-id="mvpkg" data-node-label="marine_am_arm_moveit" tabindex="0" role="button" aria-label="聚焦marine_am_arm_moveit，move_group 配置, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="move_group 配置" data-node-context="架构组件">
-          <title>marine_am_arm_moveit · move_group 配置 · 架构组件</title>
-          <rect x="540" y="530" width="210" height="90" rx="8" class="c-mask"/>
-          <rect x="540" y="530" width="210" height="90" rx="8" class="c-backend" data-animate="node" style="--step:12" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 536) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="645" y="573" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">marine_am_arm_moveit</text>
-        <text data-detail="context" x="645" y="589" class="t-muted" font-size="9" text-anchor="middle">move_group 配置</text>
-        </g>
-
-        <g id="node-numpy" data-node-id="numpy" data-node-label="numpy · scipy" tabindex="0" role="button" aria-label="聚焦numpy · scipy，FK / IK 与滤波, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="FK / IK 与滤波" data-node-context="架构组件">
-          <title>numpy · scipy · FK / IK 与滤波 · 架构组件</title>
-          <rect x="830" y="190" width="170" height="72" rx="8" class="c-mask"/>
-          <rect x="830" y="190" width="170" height="72" rx="8" class="c-backend" data-animate="node" style="--step:8" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(836 196) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="915" y="224" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">numpy · scipy</text>
-        <text data-detail="context" x="915" y="240" class="t-muted" font-size="9" text-anchor="middle">FK / IK 与滤波</text>
-        </g>
-
-        <g id="node-desc" data-node-id="desc" data-node-label="mycobot_description" tabindex="0" role="button" aria-label="聚焦mycobot_description，URDF + mesh, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="URDF + mesh" data-node-context="架构组件">
-          <title>mycobot_description · URDF + mesh · 架构组件</title>
-          <rect x="830" y="320" width="170" height="72" rx="8" class="c-mask"/>
-          <rect x="830" y="320" width="170" height="72" rx="8" class="c-backend" data-animate="node" style="--step:9" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(836 326) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="915" y="354" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">mycobot_description</text>
-        <text data-detail="context" x="915" y="370" class="t-muted" font-size="9" text-anchor="middle">URDF + mesh</text>
-        </g>
-
-        <g id="node-udp" data-node-id="udp" data-node-label="FBFD32 · UDP" tabindex="0" role="button" aria-label="聚焦FBFD32 · UDP，平台协议, 架构组件" aria-pressed="false" data-node-kind="external" data-node-sublabel="平台协议" data-node-context="架构组件">
-          <title>FBFD32 · UDP · 平台协议 · 架构组件</title>
-          <rect x="830" y="60" width="170" height="72" rx="8" class="c-mask"/>
-          <rect x="830" y="60" width="170" height="72" rx="8" class="c-external" data-animate="node" style="--step:10" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(836 66) scale(0.6875)">
-            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
-            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="915" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">FBFD32 · UDP</text>
-        <text data-detail="context" x="915" y="110" class="t-muted" font-size="9" text-anchor="middle">平台协议</text>
-        </g>
-
-        <g id="node-moveit2" data-node-id="moveit2" data-node-label="MoveIt 2" tabindex="0" role="button" aria-label="聚焦MoveIt 2，可选规划, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="可选规划" data-node-context="架构组件">
-          <title>MoveIt 2 · 可选规划 · 架构组件</title>
-          <rect x="40" y="470" width="170" height="72" rx="8" class="c-mask"/>
-          <rect x="40" y="470" width="170" height="72" rx="8" class="c-backend" data-animate="node" style="--step:12" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(46 476) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="125" y="504" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">MoveIt 2</text>
-        <text data-detail="context" x="125" y="520" class="t-muted" font-size="9" text-anchor="middle">可选规划</text>
+          <text data-node-label="" data-detail-anchor="" x="930" y="228" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">FBFD32 · UDP</text>
+        <text data-detail="context" x="930" y="244" class="t-muted" font-size="9" text-anchor="middle">192.168.1.88:8080</text>
         </g>
 
         <!-- Connection labels -->
-
-        <g data-detail="context" data-edge-from="gz" data-edge-to="bridge" data-edge-label="gz 话题" data-edge-key="1" data-edge-id="gz-to-bridge">
-          <rect x="223.2" y="199" width="43.6" height="14" rx="3" class="c-mask"/>
-          <text x="245" y="209" class="t-edge-default" font-size="8" text-anchor="middle">gz 话题</text>
+        <g data-detail="context" data-edge-from="ros2" data-edge-to="bridge" data-edge-label="话题/TF" data-edge-key="0" data-edge-id="r-b">
+          <rect x="373.2" y="123" width="43.6" height="14" rx="3" class="c-mask"/>
+          <text x="395" y="133" class="t-edge-default" font-size="8" text-anchor="middle">话题/TF</text>
         </g>
-        <g data-detail="context" data-edge-from="vrx" data-edge-to="gz" data-edge-label="插件" data-edge-key="2" data-edge-id="vrx-to-gz">
-          <rect x="110" y="300" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="125" y="310" class="t-edge-default" font-size="8" text-anchor="middle">插件</text>
+        <g data-detail="context" data-edge-from="gz" data-edge-to="pkg" data-edge-label="位姿" data-edge-key="1" data-edge-id="g-p">
+          <rect x="315.5" y="296" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="330.5" y="306" class="t-edge-default" font-size="8" text-anchor="middle">位姿</text>
         </g>
-        <g data-detail="context" data-edge-from="ros2" data-edge-to="pkg" data-edge-label="rclpy" data-edge-key="3" data-edge-id="ros2-to-pkg">
-          <rect x="403.5" y="83" width="34" height="14" rx="3" class="c-mask"/>
-          <text x="420.5" y="93" class="t-edge-default" font-size="8" text-anchor="middle">rclpy</text>
+        <g data-detail="context" data-edge-from="vrx" data-edge-to="pkg" data-edge-label="波浪" data-edge-key="2" data-edge-id="v-p">
+          <rect x="650" y="298" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="665" y="308" class="t-edge-default" font-size="8" text-anchor="middle">波浪</text>
         </g>
-        <g data-detail="context" data-edge-from="bridge" data-edge-to="pkg" data-edge-label="关节状态" data-edge-key="4" data-edge-id="bridge-to-pkg">
-          <rect x="470.8" y="199" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="495" y="209" class="t-edge-default" font-size="8" text-anchor="middle">关节状态</text>
+        <g data-detail="context" data-edge-from="bridge" data-edge-to="pkg" data-edge-label="TF" data-edge-key="3" data-edge-id="b-p">
+          <rect x="499" y="178" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="514" y="188" class="t-edge-emphasis" font-size="8" text-anchor="middle">TF</text>
         </g>
-        <g data-detail="context" data-edge-from="gz" data-edge-to="gzb" data-edge-label="gz-transport" data-edge-key="5" data-edge-id="gz-to-gzb">
-          <rect x="240" y="325.5" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="273.8" y="335.5" class="t-edge-default" font-size="8" text-anchor="middle">gz-transport</text>
-        </g>
-
-        <g data-detail="context" data-edge-from="pkg" data-edge-to="gzb" data-edge-label="位姿帧" data-edge-key="7" data-edge-id="pkg-to-gzb">
-          <rect x="600.2" y="333" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="619.6" y="343" class="t-edge-default" font-size="8" text-anchor="middle">位姿帧</text>
-        </g>
-        <g data-detail="context" data-edge-from="numpy" data-edge-to="pkg" data-edge-label="数值计算" data-edge-key="8" data-edge-id="numpy-to-pkg">
-          <rect x="765.8" y="206" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="790" y="216" class="t-edge-default" font-size="8" text-anchor="middle">数值计算</text>
-        </g>
-        <g data-detail="context" data-edge-from="desc" data-edge-to="pkg" data-edge-label="URDF" data-edge-key="9" data-edge-id="desc-to-pkg">
-          <rect x="719" y="298" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="734" y="308" class="t-edge-default" font-size="8" text-anchor="middle">URDF</text>
-        </g>
-        <g data-detail="context" data-edge-from="udp" data-edge-to="pkg" data-edge-label="报文" data-edge-key="10" data-edge-id="udp-to-pkg">
-          <rect x="722.5" y="76" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="737.5" y="86" class="t-edge-default" font-size="8" text-anchor="middle">报文</text>
-        </g>
-        <g data-detail="context" data-edge-from="desc" data-edge-to="mvpkg" data-edge-label="URDF" data-edge-key="11" data-edge-id="desc-to-mvpkg">
-          <rect x="783" y="526" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="798" y="536" class="t-edge-default" font-size="8" text-anchor="middle">URDF</text>
-        </g>
-        <g data-detail="context" data-edge-from="moveit2" data-edge-to="mvpkg" data-edge-label="规划" data-edge-key="12" data-edge-id="moveit2-to-mvpkg">
-          <rect x="485" y="520.5" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="500" y="530.5" class="t-edge-default" font-size="8" text-anchor="middle">规划</text>
+        <g data-detail="context" data-edge-from="pkg" data-edge-to="udp" data-edge-label="UDP" data-edge-key="4" data-edge-id="p-u">
+          <rect x="790" y="215" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="805" y="225" class="t-edge-emphasis" font-size="8" text-anchor="middle">UDP</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -5482,14 +5374,18 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
         <!-- Legend -->
         <g data-legend="" data-legend-bridge="">
-          <text x="40" y="652" class="t-primary" font-size="12" font-weight="650">图例</text>
-          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="后端" data-legend-x="40" data-legend-baseline="672" data-legend-width="68">
-            <rect x="40" y="663" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
-            <text x="62" y="672" class="t-muted" font-size="10" font-weight="500">后端</text>
+          <text x="40" y="424" class="t-primary" font-size="12" font-weight="650">图例</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="后端" data-legend-x="40" data-legend-baseline="444" data-legend-width="68">
+            <rect x="40" y="435" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="444" class="t-muted" font-size="10" font-weight="500">后端</text>
           </g>
-          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="外部系统" data-legend-x="130" data-legend-baseline="672" data-legend-width="93">
-            <rect x="130" y="663" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
-            <text x="152" y="672" class="t-muted" font-size="10" font-weight="500">外部系统</text>
+          <g data-legend-semantic-kind="messagebus" data-legend-kind="messagebus" data-legend-label="消息总线" data-legend-x="130" data-legend-baseline="444" data-legend-width="93">
+            <rect x="130" y="435" width="16" height="10" rx="2.5" class="c-messagebus" stroke-width="1"/>
+            <text x="152" y="444" class="t-muted" font-size="10" font-weight="500">消息总线</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="外部系统" data-legend-x="245" data-legend-baseline="444" data-legend-width="93">
+            <rect x="245" y="435" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="267" y="444" class="t-muted" font-size="10" font-weight="500">外部系统</text>
           </g>
         </g>
       </svg>
@@ -5675,31 +5571,19 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>运行时</h3>
         </div>
         <ul>
-          <li>ROS 2 Jazzy 提供 rclpy、tf2_ros 与话题机制</li>
-          <li>Gazebo Harmonic 负责物理与传感器，VRX 提供浮力与波浪插件</li>
+          <li>ROS 2 Jazzy + Gazebo Harmonic</li>
+          <li>VRX 提供船体/波浪</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-dot emerald"></div>
-          <h3>本项目</h3>
+          <h3>本仓库</h3>
         </div>
         <ul>
-          <li>marine_am_platform：补偿、速度环、平台 UDP 桥接三个节点</li>
-          <li>vrx_6dof_bridge：C++ 位姿桥（gz-transport → TF）</li>
-          <li>marine_am_arm_moveit：MoveIt 配置，按需启动</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="card-dot amber"></div>
-          <h3>可选 / 计划</h3>
-        </div>
-        <ul>
-          <li>MoveIt 2 与 pymycobot SDK 尚未接入主回路</li>
-          <li>URDF 与 mesh 同时被补偿节点和 MoveIt 配置使用</li>
+          <li>vrx_6dof_bridge：位姿桥</li>
+          <li>vrx_6dof_platform：平台桥接</li>
         </ul>
       </div>
     </div>

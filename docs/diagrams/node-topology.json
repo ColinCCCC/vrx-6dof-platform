@@ -2,7 +2,7 @@
   "schema_version": 1,
   "diagram_type": "architecture",
   "meta": {
-    "title": "运行时节点通信",
+    "title": "节点通信",
     "locale": "zh-CN",
     "output": "docs/diagrams/node-topology.html",
     "quality_profile": "showcase"
@@ -11,317 +11,144 @@
     {
       "id": "waves",
       "type": "external",
-      "label": "波浪场",
-      "sublabel": "gain 0.3 · 2.0 s",
+      "label": "VRX 波浪场",
+      "sublabel": "gain 0.3 · period 2 s",
       "pos": [
         40,
         60
       ],
       "size": [
-        130,
-        70
+        170,
+        72
       ]
     },
     {
       "id": "boat",
-      "type": "external",
+      "type": "backend",
       "label": "marine_am_boat",
-      "sublabel": "WAM-V + myCobot 280",
+      "sublabel": "浮力/水动力 · 250 Hz",
       "pos": [
         40,
-        250
+        220
       ],
       "size": [
-        170,
-        90
+        190,
+        80
       ]
     },
     {
       "id": "bridge",
       "type": "backend",
-      "label": "ros_gz_bridge",
-      "sublabel": "joint_states ↔ cmd_vel",
+      "label": "vrx_6dof_bridge",
+      "sublabel": "gz pose → TF · 100 Hz",
       "pos": [
-        290,
-        250
+        300,
+        220
       ],
       "size": [
-        160,
+        190,
         80
-      ]
-    },
-    {
-      "id": "arm",
-      "type": "backend",
-      "label": "arm_controller",
-      "sublabel": "P 速度环 · 100 Hz",
-      "pos": [
-        540,
-        250
-      ],
-      "size": [
-        150,
-        80
-      ]
-    },
-    {
-      "id": "pose",
-      "type": "backend",
-      "label": "wamv_pose_bridge",
-      "sublabel": "pose/info → TF · 100 Hz",
-      "pos": [
-        290,
-        60
-      ],
-      "size": [
-        160,
-        72
-      ]
-    },
-    {
-      "id": "comp",
-      "type": "backend",
-      "label": "arm_wave_compensation",
-      "sublabel": "ESO + 前馈 + FX-LMS · 20 Hz",
-      "pos": [
-        540,
-        60
-      ],
-      "size": [
-        170,
-        72
       ]
     },
     {
       "id": "deck",
       "type": "backend",
       "label": "deck_pose_bridge",
-      "sublabel": "FBFD32 · 50 Hz",
+      "sublabel": "FBFD32 · 20 Hz",
       "pos": [
-        790,
-        250
+        560,
+        220
       ],
       "size": [
-        160,
+        180,
         80
+      ]
+    },
+    {
+      "id": "udp",
+      "type": "messagebus",
+      "label": "UDP",
+      "sublabel": "192.168.1.88:8080",
+      "pos": [
+        820,
+        220
+      ],
+      "size": [
+        150,
+        72
       ]
     },
     {
       "id": "platform",
       "type": "external",
       "label": "全控六自由度平台",
-      "sublabel": "192.168.1.88:8080",
+      "sublabel": "32 字节位姿指令",
       "pos": [
-        1030,
-        250
+        1040,
+        220
       ],
       "size": [
-        180,
-        90
-      ]
-    },
-    {
-      "id": "mon",
-      "type": "backend",
-      "label": "command_monitor",
-      "sublabel": "报文翻译与打印",
-      "pos": [
-        790,
-        440
-      ],
-      "size": [
-        160,
-        72
-      ]
-    },
-    {
-      "id": "realarm",
-      "type": "external",
-      "label": "机械臂实机（计划）",
-      "sublabel": "装到平台上",
-      "pos": [
-        1030,
-        440
-      ],
-      "size": [
-        160,
+        190,
         80
       ]
-    }
-  ],
-  "boundaries": [
+    },
     {
-      "kind": "region",
-      "label": "Gazebo Harmonic · VRX",
-      "wraps": [
-        "waves",
-        "boat"
+      "id": "monitor",
+      "type": "backend",
+      "label": "command_monitor",
+      "sublabel": "状态回传 · 20 Hz",
+      "pos": [
+        1040,
+        380
       ],
-      "pad": 20
+      "size": [
+        190,
+        72
+      ]
     }
   ],
   "connections": [
     {
-      "id": "waves-to-boat",
+      "id": "w-b",
       "from": "waves",
       "to": "boat",
-      "label": "激励"
+      "label": "波浪/浮力",
+      "variant": "default"
     },
     {
-      "id": "boat-to-bridge",
+      "id": "b-br",
       "from": "boat",
       "to": "bridge",
-      "label": "关节状态",
+      "label": "位姿",
       "variant": "emphasis"
     },
     {
-      "id": "bridge-to-boat",
+      "id": "br-d",
       "from": "bridge",
-      "to": "boat",
-      "label": "速度指令"
-    },
-    {
-      "id": "boat-to-pose",
-      "from": "boat",
-      "to": "pose",
-      "label": "pose/info",
-      "fromSide": "top",
-      "toSide": "left",
-      "via": [
-        [
-          125,
-          215
-        ],
-        [
-          250,
-          215
-        ],
-        [
-          250,
-          96
-        ]
-      ]
-    },
-    {
-      "id": "pose-to-comp",
-      "from": "pose",
-      "to": "comp",
-      "label": "TF 船体",
-      "variant": "emphasis"
-    },
-    {
-      "id": "bridge-to-arm",
-      "from": "bridge",
-      "to": "arm",
-      "label": "关节状态"
-    },
-    {
-      "id": "bridge-to-comp",
-      "from": "bridge",
-      "to": "comp",
-      "label": "关节角",
-      "fromSide": "top",
-      "toSide": "left",
-      "via": [
-        [
-          370,
-          180
-        ],
-        [
-          470,
-          180
-        ],
-        [
-          470,
-          96
-        ]
-      ]
-    },
-    {
-      "id": "comp-to-arm",
-      "from": "comp",
-      "to": "arm",
-      "label": "/arm/target",
-      "fromSide": "bottom",
-      "toSide": "top"
-    },
-    {
-      "id": "arm-to-bridge",
-      "from": "arm",
-      "to": "bridge",
-      "label": "关节速度",
-      "fromSide": "bottom",
-      "toSide": "bottom",
-      "via": [
-        [
-          615,
-          420
-        ],
-        [
-          370,
-          420
-        ]
-      ]
-    },
-    {
-      "id": "pose-to-deck",
-      "from": "pose",
       "to": "deck",
-      "label": "甲板位姿",
-      "fromSide": "top",
-      "toSide": "top",
-      "via": [
-        [
-          370,
-          34
-        ],
-        [
-          870,
-          34
-        ]
-      ]
+      "label": "TF",
+      "variant": "emphasis"
     },
     {
-      "id": "deck-to-platform",
+      "id": "d-u",
       "from": "deck",
-      "to": "platform",
-      "label": "UDP"
+      "to": "udp",
+      "label": "FBFD32",
+      "variant": "emphasis"
     },
     {
-      "id": "platform-to-deck",
+      "id": "u-p",
+      "from": "udp",
+      "to": "platform",
+      "label": "UDP",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p-m",
       "from": "platform",
-      "to": "deck",
-      "label": "状态回传",
-      "variant": "dashed",
-      "fromSide": "bottom",
-      "toSide": "bottom",
-      "via": [
-        [
-          1120,
-          380
-        ],
-        [
-          870,
-          380
-        ]
-      ]
-    },
-    {
-      "id": "deck-to-mon",
-      "from": "deck",
-      "to": "mon",
-      "label": "命令",
-      "fromSide": "bottom",
-      "toSide": "top"
-    },
-    {
-      "id": "realarm-to-platform",
-      "from": "realarm",
-      "to": "platform",
-      "label": "装机",
-      "variant": "dashed",
-      "fromSide": "top",
-      "toSide": "bottom"
+      "to": "monitor",
+      "label": "状态",
+      "variant": "default"
     }
   ],
   "cards": [
@@ -329,24 +156,16 @@
       "dot": "cyan",
       "title": "仿真侧",
       "items": [
-        "Gazebo 里船体随波浪升沉，关节状态经 ros_gz_bridge 进 ROS",
-        "wamv_pose_bridge 把 pose/info 变成 TF，供补偿节点和平台桥接共用"
+        "VRX/Gazebo 提供船体与波浪",
+        "vrx_6dof_bridge 输出 TF"
       ]
     },
     {
       "dot": "emerald",
-      "title": "控制侧",
+      "title": "平台侧",
       "items": [
-        "arm_wave_compensation 20 Hz 输出 /arm/target 关节角目标",
-        "arm_controller 用 P 速度环把目标转成每关节 cmd_vel，桥接回 Gazebo"
-      ]
-    },
-    {
-      "dot": "amber",
-      "title": "计划中",
-      "items": [
-        "实机机械臂装到平台上（虚线），平台位姿回灌 Gazebo 尚未落地",
-        "MoveIt move_group 只作可选依赖，未接进主回路，见依赖关系图"
+        "deck_pose_bridge 发送 32 字节 FBFD32",
+        "command_monitor 解析平台回传"
       ]
     }
   ]

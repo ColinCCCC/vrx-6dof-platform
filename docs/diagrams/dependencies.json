@@ -26,7 +26,7 @@
       "id": "gz",
       "type": "external",
       "label": "Gazebo Harmonic",
-      "sublabel": "物理与传感器",
+      "sublabel": "gz-sim 8",
       "pos": [
         40,
         190
@@ -40,7 +40,7 @@
       "id": "vrx",
       "type": "external",
       "label": "VRX vrx_gz",
-      "sublabel": "浮力 / 波浪插件",
+      "sublabel": "浮力/波浪插件",
       "pos": [
         40,
         320
@@ -53,205 +53,81 @@
     {
       "id": "bridge",
       "type": "backend",
-      "label": "ros_gz_bridge",
-      "sublabel": "话题桥接",
+      "label": "vrx_6dof_bridge",
+      "sublabel": "C++ gz-transport",
       "pos": [
-        280,
+        300,
         190
       ],
       "size": [
-        170,
-        72
+        190,
+        80
       ]
     },
     {
       "id": "pkg",
       "type": "backend",
-      "label": "marine_am_platform",
-      "sublabel": "补偿 · 速度环 · 平台桥接",
+      "label": "vrx_6dof_platform",
+      "sublabel": "桥接/监听/launch",
       "pos": [
-        540,
+        560,
         190
       ],
       "size": [
         210,
-        110
-      ]
-    },
-    {
-      "id": "gzb",
-      "type": "backend",
-      "label": "vrx_6dof_bridge",
-      "sublabel": "wamv_pose_bridge",
-      "pos": [
-        540,
-        380
-      ],
-      "size": [
-        210,
         90
-      ]
-    },
-    {
-      "id": "mvpkg",
-      "type": "backend",
-      "label": "marine_am_arm_moveit",
-      "sublabel": "move_group 配置",
-      "pos": [
-        540,
-        530
-      ],
-      "size": [
-        210,
-        90
-      ]
-    },
-    {
-      "id": "numpy",
-      "type": "backend",
-      "label": "numpy · scipy",
-      "sublabel": "FK / IK 与滤波",
-      "pos": [
-        830,
-        190
-      ],
-      "size": [
-        170,
-        72
-      ]
-    },
-    {
-      "id": "desc",
-      "type": "backend",
-      "label": "mycobot_description",
-      "sublabel": "URDF + mesh",
-      "pos": [
-        830,
-        320
-      ],
-      "size": [
-        170,
-        72
       ]
     },
     {
       "id": "udp",
-      "type": "external",
+      "type": "messagebus",
       "label": "FBFD32 · UDP",
-      "sublabel": "平台协议",
+      "sublabel": "192.168.1.88:8080",
       "pos": [
-        830,
-        60
+        840,
+        190
       ],
       "size": [
-        170,
-        72
-      ]
-    },
-    {
-      "id": "moveit2",
-      "type": "backend",
-      "label": "MoveIt 2",
-      "sublabel": "可选规划",
-      "pos": [
-        40,
-        470
-      ],
-      "size": [
-        170,
-        72
+        180,
+        80
       ]
     }
   ],
   "connections": [
     {
-      "id": "ros2-to-bridge",
+      "id": "r-b",
       "from": "ros2",
-      "to": "bridge"
-    },
-    {
-      "id": "gz-to-bridge",
-      "from": "gz",
       "to": "bridge",
-      "label": "gz 话题"
+      "label": "话题/TF",
+      "variant": "default"
     },
     {
-      "id": "vrx-to-gz",
-      "from": "vrx",
-      "to": "gz",
-      "label": "插件"
-    },
-    {
-      "id": "ros2-to-pkg",
-      "from": "ros2",
-      "to": "pkg",
-      "label": "rclpy"
-    },
-    {
-      "id": "bridge-to-pkg",
-      "from": "bridge",
-      "to": "pkg",
-      "label": "关节状态"
-    },
-    {
-      "id": "gz-to-gzb",
+      "id": "g-p",
       "from": "gz",
-      "to": "gzb",
-      "label": "gz-transport"
+      "to": "pkg",
+      "label": "位姿",
+      "variant": "default"
     },
     {
-      "id": "bridge-to-gzb",
+      "id": "v-p",
+      "from": "vrx",
+      "to": "pkg",
+      "label": "波浪",
+      "variant": "default"
+    },
+    {
+      "id": "b-p",
       "from": "bridge",
-      "to": "gzb"
+      "to": "pkg",
+      "label": "TF",
+      "variant": "emphasis"
     },
     {
-      "id": "pkg-to-gzb",
+      "id": "p-u",
       "from": "pkg",
-      "to": "gzb",
-      "label": "位姿帧"
-    },
-    {
-      "id": "numpy-to-pkg",
-      "from": "numpy",
-      "to": "pkg",
-      "label": "数值计算"
-    },
-    {
-      "id": "desc-to-pkg",
-      "from": "desc",
-      "to": "pkg",
-      "label": "URDF"
-    },
-    {
-      "id": "udp-to-pkg",
-      "from": "udp",
-      "to": "pkg",
-      "label": "报文"
-    },
-    {
-      "id": "desc-to-mvpkg",
-      "from": "desc",
-      "to": "mvpkg",
-      "label": "URDF",
-      "toSide": "right"
-    },
-    {
-      "id": "moveit2-to-mvpkg",
-      "from": "moveit2",
-      "to": "mvpkg",
-      "label": "规划",
-      "fromSide": "right",
-      "toSide": "left",
-      "via": [
-        [
-          500,
-          506
-        ],
-        [
-          500,
-          575
-        ]
-      ]
+      "to": "udp",
+      "label": "UDP",
+      "variant": "emphasis"
     }
   ],
   "cards": [
@@ -259,25 +135,16 @@
       "dot": "cyan",
       "title": "运行时",
       "items": [
-        "ROS 2 Jazzy 提供 rclpy、tf2_ros 与话题机制",
-        "Gazebo Harmonic 负责物理与传感器，VRX 提供浮力与波浪插件"
+        "ROS 2 Jazzy + Gazebo Harmonic",
+        "VRX 提供船体/波浪"
       ]
     },
     {
       "dot": "emerald",
-      "title": "本项目",
+      "title": "本仓库",
       "items": [
-        "marine_am_platform：补偿、速度环、平台 UDP 桥接三个节点",
-        "vrx_6dof_bridge：C++ 位姿桥（gz-transport → TF）",
-        "marine_am_arm_moveit：MoveIt 配置，按需启动"
-      ]
-    },
-    {
-      "dot": "amber",
-      "title": "可选 / 计划",
-      "items": [
-        "MoveIt 2 与 pymycobot SDK 尚未接入主回路",
-        "URDF 与 mesh 同时被补偿节点和 MoveIt 配置使用"
+        "vrx_6dof_bridge：位姿桥",
+        "vrx_6dof_platform：平台桥接"
       ]
     }
   ]
