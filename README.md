@@ -9,4 +9,5 @@ export MARINE_AM_SIM_DIR=$PWD
 ros2 launch marine_am_sim sim.launch.py
 ```
 
+`vrx_gz` 仍作为外部依赖（可用 `vcs import src < dependencies.repos` 拉取）。
 机械臂/补偿控制仓库通过 `MARINE_AM_SIM_DIR` 和 `run_demo.sh` 依赖本仓库。
